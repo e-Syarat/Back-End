@@ -3,7 +3,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
-   return queryInterface.bulkInsert('abouts', [
+   return queryInterface.bulkInsert('about', [
       {
         description: 'Aplikasi ini dibuat untuk membantu anak-anak belajar membaca dan menulis huruf alfabet, angka, dan kata-kata sederhana.',
         team: 'Tim Pengembang Aplikasi Edukasi Anak',

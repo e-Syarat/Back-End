@@ -8,7 +8,7 @@ const getDictionaryNumber = async (req, res) => {
        status: 'ok',
        data: DictionaryNumber.map((item) => ({
            id: item.id,
-           image: item.image,
+           image: `${req.protocol}://${req.get('host')}/number/${item.image}`,
            number: item.number,
        })),
      };
@@ -25,7 +25,12 @@ const getDictionaryNumberById = async (req, res) => {
         if (!DictionaryNumber) {
             return res.status(404).json({ error: 'Dictionary not found' });
         }
-        return res.status(200).json(DictionaryNumber);
+        const result = {
+            id: DictionaryNumber.id,
+            number: DictionaryNumber.number,
+            image: `${req.protocol}://${req.get('host')}/number/${DictionaryNumber.image}`,
+        };
+        return res.status(200).json(result);
     } catch (error) {
         return res.status(500).json({ error: 'Internal Server Error' });
     }

@@ -8,7 +8,7 @@ const getDictionary = async (req, res) => {
        status: 'ok',
        data: Dictionary.map((item) => ({
            id: item.id,
-           image: item.image,
+           image:  `${req.protocol}://${req.get('host')}/alfabet/${item.image}`,
            alfabet: item.alfabet,
        })),
      };
@@ -19,18 +19,25 @@ const getDictionary = async (req, res) => {
 };
 
 const getDictionaryById = async (req, res) => {
-    try {
-        const { id } = req.params;
-        const Dictionary = await dictionary.findByPk(id);
-        if (!Dictionary) {
-            return res.status(404).json({ error: 'Dictionary not found' });
-        }
-        return res.status(200).json(Dictionary);
-    } catch (error) {
-
-        return res.status(500).json({ error: 'Internal Server Error' });
+  try {
+    const { id } = req.params;
+    const item = await dictionary.findByPk(id);
+    if (!item) {
+      return res.status(404).json({ error: 'Dictionary not found' });
     }
+
+    const result = {
+      id: item.id,
+      alfabet: item.alfabet,
+      image: `${req.protocol}://${req.get('host')}/alfabet/${item.image}`,
+    };
+
+    return res.status(200).json(result);
+  } catch (error) {
+    return res.status(500).json({ error: 'Internal Server Error' });
+  }
 };
+
 
 module.exports = {
     getDictionary,

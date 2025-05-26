@@ -5,107 +5,107 @@ module.exports = {
   async up (queryInterface, Sequelize) {
     return queryInterface.bulkInsert('dictionary', [
       {
-        image: '../public/alfabet/A.png',
+        image: 'A.png',
         alfabet: 'A',
       },
       {
-        image: '../public/alfabet/B.png',
+        image: 'B.png',
         alfabet: 'B',
       },
       {
-        image: '../public/alfabet/C.png',
+        image: 'C.png',
         alfabet: 'C',
       },
       {
-        image: '../public/alfabet/D.png',
+        image: 'D.png',
         alfabet: 'D',
       },
       {
-        image: '../public/alfabet/E.png',
+        image: 'E.png',
         alfabet: 'E',
       },
       {
-        image: '../public/alfabet/F.png',
+        image: 'F.png',
         alfabet: 'F',
       },
       {
-        image: '../public/alfabet/G.png',
+        image: 'G.png',
         alfabet: 'G',
       },
       {
-        image: '../public/alfabet/H.png',
+        image: 'H.png',
         alfabet: 'H',
       },
       {
-        image: '../public/alfabet/I.png',
+        image: 'I.png',
         alfabet: 'I',
       },
       {
-        image: '../public/alfabet/J.png',
+        image: 'J.png',
         alfabet: 'J',
       },
       {
-        image: '../public/alfabet/K.png',
+        image: 'K.png',
         alfabet: 'K',
       },
       {
-        image: '../public/alfabet/L.png',
+        image: 'L.png',
         alfabet: 'L',
       },
       {
-        image: '../public/alfabet/M.png',
+        image: 'M.png',
         alfabet: 'M',
       },
       {
-        image: '../public/alfabet/N.png',
+        image: 'N.png',
         alfabet: 'N',
       },
       {
-        image: '../public/alfabet/O.png',
+        image: 'O.png',
         alfabet: 'O',
       },
       {
-        image: '../public/alfabet/P.png',
+        image: 'P.png',
         alfabet: 'P',
       },
       {
-        image: '../public/alfabet/Q.png',
+        image: 'Q.png',
         alfabet: 'Q',
       },
       {
-        image: '../public/alfabet/R.png',
+        image: 'R.png',
         alfabet: 'R',
       },
       {
-        image: '../public/alfabet/S.png',
+        image: 'S.png',
         alfabet: 'S',
       },
       {
-        image: '../public/alfabet/T.png',
+        image: 'T.png',
         alfabet: 'T',
       },
       {
-        image: '../public/alfabet/U.png',
+        image: 'U.png',
         alfabet: 'U',
       },
       {
-        image: '../public/alfabet/V.png',
+        image: 'V.png',
         alfabet: 'V',
       },
       {
-        image: '../public/alfabet/W.png',
+        image: 'W.png',
         alfabet: 'W',
       },
       {
-        image: '../public/alfabet/X.png',
+        image: 'X.png',
         alfabet: 'X',
       },
       {
-        image: '../public/alfabet/Y.png',
+        image: 'Y.png',
         alfabet: 'Y',
       },
       {
-        image: '../public/alfabet/Z.png',
+        image: 'Z.png',
         alfabet: 'Z',
       },
     ]);
