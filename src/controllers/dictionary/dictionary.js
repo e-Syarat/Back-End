@@ -27,9 +27,10 @@ const getDictionaryById = async (req, res) => {
     }
 
     const result = {
-      id: item.id,
-      alfabet: item.alfabet,
-      image: `${req.protocol}://${req.get('host')}/alfabet/${item.image}`,
+    status: 'ok',
+    id: item.id,
+    alfabet: item.alfabet,
+    image: `${req.protocol}://${req.get('host')}/alfabet/${item.image}`,
     };
 
     return res.status(200).json(result);

@@ -26,6 +26,7 @@ const getDictionaryNumberById = async (req, res) => {
             return res.status(404).json({ error: 'Dictionary not found' });
         }
         const result = {
+            status: 'ok',
             id: DictionaryNumber.id,
             number: DictionaryNumber.number,
             image: `${req.protocol}://${req.get('host')}/number/${DictionaryNumber.image}`,
