@@ -46,5 +46,9 @@ const dictionarynumber = require('./dictionarynumber')(sequelize, Sequelize.Data
 db.dictionarynumber = dictionarynumber;
 const About = require('./about')(sequelize, Sequelize.DataTypes);
 db.abouts = About;
+const Quiz = require('./quiz')(sequelize, Sequelize.DataTypes);
+db.quizzes = Quiz;
+const User = require('./user')(sequelize, Sequelize.DataTypes);
+db.user = User;
 
 module.exports = db;
