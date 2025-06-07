@@ -16,4 +16,4 @@ const sequelize = new Sequelize(
 
 
 
-module.export = sequelize;
+module.exports = sequelize;
