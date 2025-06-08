@@ -11,9 +11,16 @@ app.use(helmet());
 app.use(express.json());
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
-app.use('/alfabet',express.static(path.join(__dirname, './public/alfabet')));
-app.use('/number',express.static(path.join(__dirname, './public/number')));
-
+app.use('/alfabet', express.static(path.join(__dirname, './public/alfabet'), {
+  setHeaders: (res, path) => {
+    res.set('Cross-Origin-Resource-Policy', 'cross-origin');
+  }
+}));
+app.use('/number', express.static(path.join(__dirname, './public/number'), {
+    setHeaders: (res, path) => {
+      res.set('Cross-Origin-Resource-Policy', 'cross-origin');
+    }
+}));
 //routes
 app.use('/api', router);
 

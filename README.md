@@ -241,7 +241,7 @@
 
 ### Endpoint
 
-`/api/quizr`
+`/api/quiz`
 
 ### Method
 

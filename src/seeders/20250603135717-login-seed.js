@@ -3,10 +3,10 @@ const { hashpw } = require('../utils/hashpw');
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
-    const hashedPassword = await hashpw('dicoding123');
+    const hashedPassword = await hashpw('123456');
    return queryInterface.bulkInsert('users', [
       {
-        username: 'user1',
+        username: 'user@gmail.com',
         password: hashedPassword,
       }
     ]);
