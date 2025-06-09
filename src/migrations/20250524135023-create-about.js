@@ -12,14 +12,14 @@ module.exports = {
       description: {
         type: Sequelize.STRING
       },
-      team: {
-        type: Sequelize.STRING
-      },
       visi: {
         type: Sequelize.STRING
       },
       misi: {
         type: Sequelize.STRING
+      },
+      team: {
+        type: Sequelize.JSON
       }
     });
   },

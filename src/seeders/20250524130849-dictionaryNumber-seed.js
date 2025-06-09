@@ -3,7 +3,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
-    return queryInterface.bulkInsert('dictionarynumbers', [
+    return queryInterface.bulkInsert('dictionaryNumbers', [
       { image: '1.png', number: '1' },
       { image: '2.png', number: '2' },
       { image: '3.png', number: '3' },
@@ -18,6 +18,6 @@ module.exports = {
   },
 
   async down (queryInterface, Sequelize) {
-    return queryInterface.bulkDelete('dictionarynumbers', null, {});
+    return queryInterface.bulkDelete('dictionaryNumbers', null, {});
   }
 };

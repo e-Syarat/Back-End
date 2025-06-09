@@ -15,9 +15,9 @@ module.exports = (sequelize, DataTypes) => {
   }
   about.init({
     description: DataTypes.STRING,
-    team: DataTypes.STRING,
     visi: DataTypes.STRING,
-    misi: DataTypes.STRING
+    misi: DataTypes.STRING,
+    team: DataTypes.JSON
   }, {
     sequelize,
     modelName: 'about',

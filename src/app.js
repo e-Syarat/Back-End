@@ -27,6 +27,14 @@ app.use(
     },
   })
 );
+app.use(
+  "/team",
+  express.static(path.join(__dirname, "./public/team"), {
+    setHeaders: (res, path) => {
+      res.set("Cross-Origin-Resource-Policy", "cross-origin");
+    },
+  })
+);
 //routes
 app.use("/api", router);
 
