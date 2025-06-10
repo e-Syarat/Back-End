@@ -9,20 +9,18 @@ const user = db.user;
 
 const register = async (req, res) => {
       try {
-        const { username, password } = req.body;
+        const { username, email, password } = req.body;
   
-        // Cek apakah username sudah ada
-        const existingUser = await user.findOne({ where: { username } });
+        const existingUser = await user.findOne({ where: { email } });
         if (existingUser) {
-          return res.status(400).json({ message: 'Username sudah terdaftar' });
+          return res.status(400).json({ message: 'Email sudah terdaftar' });
         }
   
-        // Hash password
         const hashedPassword = await bcrypt.hash(password, 10);
-  
-        // Simpan user
+
         const newUser = await user.create({
           username,
+          email,
           password: hashedPassword,
         });
   
@@ -33,27 +31,27 @@ const register = async (req, res) => {
     }
 
 const login = async (req, res) => {
-    const { username, password } = req.body;
+    const { email, password } = req.body;
 
-    const { error } = validation.loginValidation({ username, password });
+    const { error } = validation.loginValidation({ email, password });
     if (error) {
         return res.status(400).json({ error: error.details[0].message });
     }
 
     try {
-        const foundUser = await user.findOne({ where: { username } });
+        const foundUser = await user.findOne({ where: { email } });
 
         if (!foundUser || !await bcrypt.compare(password, foundUser.password)) {
-            return res.status(401).json({ error: 'Invalid username or password' });
+            return res.status(401).json({ error: 'Email atau password salah' });
         }
 
-        const token = jwt.sign({ id: username.id }, process.env.JWT_SECRET, {
+        const token = jwt.sign({ id: foundUser.id }, process.env.JWT_SECRET, {
             expiresIn: '1h',
-          });
+        });
+        
 
-          return res.status(200).json({ message: 'Login successful', token });
+          return res.status(200).json({ message: 'Login berhasil', token });
     } catch (error) {
-        console.error('Login Error:', error);
         return res.status(500).json({ error: 'Internal Server Error' });
 
     }

@@ -12,7 +12,7 @@
 
 ```json
 {
-    "username": "string",
+    "email": "string",
     "password": "string"
 }
 ```
@@ -35,6 +35,13 @@
 ```json
 {
     "message": "Email dan password harus diisi"
+}
+```
+
+    status: 401(Unauthorized)
+```json
+{
+      "message": "Email atau password salah"
 }
 ```
 
@@ -267,6 +274,7 @@
 			"opsi2": "C",
 			"opsi3": "A",
 			"opsi4": "D"
+            "answer": "A"
 		}
     }
 ```
@@ -303,15 +311,22 @@
 ```json
 {
     "status": "ok",
-	"data": [
-		{
+	"data": 
+        {
 			"id": 1,
 			"description": "string",
-			"team": "string",
 			"visi": "string",
-			"misi": "string"
-		}
-	]
+			"misi": "string",
+			"team": 
+            [
+				{
+					"desc": "string",
+					"name": "string",
+					"role": "string",
+					"photo": "striing"
+				}
+            ]
+	    }
 }
 ```
 
