@@ -318,3 +318,39 @@
 ### Response Error
     status: 500(Internal Server Error)
 
+## 8. register
+
+### Endpoint
+
+`/api/register`
+
+### Method
+
+`POST`
+
+### req.body
+```json
+{
+    "username": "string",
+    "password": "string"
+}
+```
+
+###response success
+    status: 200
+
+ ```json
+    {
+        "message": "registered berhasil"
+    }
+
+```
+
+### response error
+    status: 400(Bad request)
+
+```json
+    {
+        "message": "username sudah terdaftar"
+    }
+```
