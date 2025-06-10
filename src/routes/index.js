@@ -15,6 +15,7 @@ const {authMiddleware} = require ('../middleware/authMiddleware.js');
 
 const router = express.Router();
 
+
 router.post('/login',login, rateLimit);
 router.get('/about',getAbout);
 router.get('/dictionary',authMiddleware, getDictionary );
