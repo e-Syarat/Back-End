@@ -14,6 +14,7 @@ const getQuiz = async (req, res) => {
                 opsi2: item.opsi2,
                 opsi3: item.opsi3,
                 opsi4: item.opsi4,
+                answer: item.answer,
             })),
           };
         res.status(200).json(result);

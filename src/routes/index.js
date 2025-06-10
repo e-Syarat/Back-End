@@ -8,14 +8,16 @@ const {
     getDictionaryNumber,
     getDictionaryNumberById
 } = require('../controllers/dictionary/dictionaryNumber.js')
-const {login} = require ('../controllers/user/login.js');
+const {login,
+    register
+} = require ('../controllers/user/login.js');
 const { getQuiz } = require('../controllers/quiz/quiz.js');
 const {rateLimit} = require('../middleware/rateLimiter.js');
 const {authMiddleware} = require ('../middleware/authMiddleware.js');
 
 const router = express.Router();
 
-
+router.post('/register',register);
 router.post('/login',login, rateLimit);
 router.get('/about',getAbout);
 router.get('/dictionary',authMiddleware, getDictionary );

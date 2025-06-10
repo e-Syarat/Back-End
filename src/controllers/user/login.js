@@ -6,6 +6,32 @@ const jwt = require ('jsonwebtoken');
 
 const user = db.user;
 
+
+const register = async (req, res) => {
+      try {
+        const { username, password } = req.body;
+  
+        // Cek apakah username sudah ada
+        const existingUser = await user.findOne({ where: { username } });
+        if (existingUser) {
+          return res.status(400).json({ message: 'Username sudah terdaftar' });
+        }
+  
+        // Hash password
+        const hashedPassword = await bcrypt.hash(password, 10);
+  
+        // Simpan user
+        const newUser = await user.create({
+          username,
+          password: hashedPassword,
+        });
+  
+        res.status(201).json({ message: 'Register berhasil', userId: newUser.id });
+      } catch (error) {
+        res.status(500).json({ message: 'Terjadi kesalahan', error: error.message });
+      }
+    }
+
 const login = async (req, res) => {
     const { username, password } = req.body;
 
@@ -34,5 +60,6 @@ const login = async (req, res) => {
 }
 
 module.exports = {
-    login
+    login,
+    register
 }
